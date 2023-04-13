@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_booking"
+            android:icon="@drawable/ic_menu_booking"
+            android:title="@string/menu_booking" />
+        <item
+            android:id="@+id/nav_rentcheckout"
+            android:icon="@drawable/ic_menu_rentcheckout"
+            android:title="@string/menu_rentcheckout" />
+        <item
+            android:id="@+id/nav_statistic"
+            android:icon="@drawable/ic_menu_statistic"
+            android:title="@string/menu_statistic" />
+        <item
+            android:id="@+id/nav_money_management"
+            android:icon="@drawable/ic_menu_money_management"
+            android:title="@string/menu_money_management"
+            />
+        <item
+            android:id="@+id/nav_system_management"
+            android:icon="@drawable/ic_menu_system_management"
+            android:title="@string/menu_system_management"
+            />
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_menu_account"
+            android:title="@string/menu_account"
+            />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_menu_logout"
+            android:title="@string/log_out"
+            />
+    </group>
+</menu>
