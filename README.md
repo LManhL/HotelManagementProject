@@ -21,11 +21,8 @@ The Hotel Management Project is built using the following technologies:
 # Installation
 To install the Hotel Management Project, follow these steps:
 
-- Clone the repository from GitHub: git clone https://github.com/your-username/hotel-management.git
+- Clone the repository from GitHub: git clone https://github.com/LManhL/HotelManagementProject.git
 - Open the project in Android Studio.
-
 - Ensure that your computer has the Android SDK and JDK installed.
-
 - Connect a mobile device or run the application on an Android Emulator.
-
 - Compile and run the application.
