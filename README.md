@@ -1,4 +1,5 @@
 # HotelManagementProject
+# Work in progress
 The Hotel Management Project is a developed application to manage the operations and information of a hotel. This application provides a user-friendly interface for hotel management to handle rooms, reservations, staff.
 
 # Features
