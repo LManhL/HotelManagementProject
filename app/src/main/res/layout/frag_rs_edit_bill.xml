@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.roomservices.EditBillCheckedinFragment"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:boxBackgroundColor="@color/box_edit_text_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_customername_editbill_checkedin"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:enabled="true"
+                    android:hint="Customer name" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:boxBackgroundColor="@color/box_edit_text_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_phonenumber_editbill_checkedin"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"
+                    android:inputType="phone"
+                    android:enabled="true"
+                    android:hint="Phone number" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:boxBackgroundColor="@color/box_edit_text_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_note_editbill_checkedin"
+                    android:inputType="textMultiLine"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Note" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_otherprice_editbill_checkedin"
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:enabled="true"
+                        android:hint="Other price" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_prepayment_editbill_checkedin"
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:enabled="true"
+                        android:inputType="number"
+                        android:hint="Prepayment" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:boxBackgroundColor="@color/box_edit_text_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_surcharge_editbill_checkedin"
+                    android:layout_width="175dp"
+                    android:layout_height="match_parent"
+                    android:enabled="true"
+                    android:inputType="number"
+                    android:hint="Surcharge" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButton
+                app:backgroundTint="#FFEB3B"
+                app:cornerRadius="10dp"
+                android:id="@+id/btn_save_editbill_checkedin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="#45432B"
+                android:text="Caculate cost" />
+
+            <TextView
+                android:textColor="#45432B"
+                android:id="@+id/txt_menucost_editbill_checkedin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Menu cost"
+                android:textSize="18sp" />
+
+            <TextView
+                android:textColor="#45432B"
+                android:id="@+id/txt_totalroomcost_editbill_checkedin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Total roomcost"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="--------------------------------------------------------------------------------------------"
+                />
+            <TextView
+                android:textColor="#45432B"
+                android:id="@+id/txt_totalprice_editbill_checkedin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Total price"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_blue_color">#0F7AEC</color>
+    <color name="light_blue_background_color">#e4ebf5</color>
+    <color name="box_edit_text_color">#80C3DBF8</color>
+    <color name="header_text">#80124CDD</color>
+    <color name="theme_color">#1047EC</color>
 </resources>

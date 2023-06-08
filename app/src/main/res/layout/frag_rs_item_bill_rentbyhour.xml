@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/light_blue_background_color">
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_cover_item_rentbyhour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="vertical"
+        android:background="@color/cardview_light_background"
+        >
+
+        <ImageView
+            android:id="@+id/img_item_checkedin_rentbyhour"
+            android:layout_width="136dp"
+            android:layout_height="135dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/room" />
+        <TextView
+            android:id="@+id/txt_room_name_item_checkedin_rentbyhour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/img_item_checkedin_rentbyhour"
+            android:text="ROOM 504"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="50dp"
+            />
+        <TextView
+            android:id="@+id/txt_starttime_item_checkedin_rentbyhour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_room_name_item_checkedin_rentbyhour"
+            android:layout_toRightOf="@+id/img_item_checkedin_rentbyhour"
+            android:text="From: 3/5/2023 20:00"
+            android:layout_marginLeft="15dp"
+            android:textSize="14dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="italic"
+            />
+        <TextView
+            android:id="@+id/txt_staytime_item_checkedin_rentbyhour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_starttime_item_checkedin_rentbyhour"
+            android:layout_toRightOf="@+id/img_item_checkedin_rentbyhour"
+            android:text="Stay time: 02:19"
+            android:layout_marginLeft="15dp"
+            android:textSize="14dp"
+            android:textStyle="italic"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_staytime_item_checkedin_rentbyhour"
+            android:layout_toRightOf="@+id/img_item_checkedin_rentbyhour"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_money"
+                    />
+                <TextView
+                    android:id="@+id/txt_currentprice_item_rentbyhour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="800000"
+                    android:layout_marginLeft="1dp"
+                    android:textColor="#C64C18"
+                    android:textSize="14dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_person_checkedin"
+                    />
+                <TextView
+                    android:id="@+id/txt_state_item_rentbyhour"
+                    android:textColor="#0847E4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Checked in"
+                    android:layout_marginLeft="1dp"
+                    android:textSize="14dp"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

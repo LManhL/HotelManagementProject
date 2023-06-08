@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group>
+        <item
+            android:id="@+id/menu_item_checkout"
+            android:icon="@drawable/ic_checkout"
+            android:title="Check out" />
+        <item
+            android:id="@+id/menu_item_delete_checkedin"
+            android:icon="@drawable/ic_cancle"
+            android:title="Delete" />
+    </group>
+</menu>

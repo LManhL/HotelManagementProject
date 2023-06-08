@@ -13,21 +13,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.hotelmangementproject.R;
-import com.example.hotelmangementproject.databinding.FragmentHomeBinding;
-import com.example.hotelmangementproject.databinding.FragmentMoneyManagementBinding;
-import com.example.hotelmangementproject.ui.home.HomeViewModel;
+import com.example.hotelmangementproject.databinding.FragMmMainBinding;
 
 public class MoneyManagementFragment extends Fragment {
 
-    private FragmentMoneyManagementBinding binding;
+    private FragMmMainBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         MoneyManagementViewModel moneyManagementViewModel =
                 new ViewModelProvider(this).get(MoneyManagementViewModel.class);
 
-        binding = FragmentMoneyManagementBinding.inflate(inflater, container, false);
+        binding = FragMmMainBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textMoneyManagement;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group>
+        <item
+            android:icon="@drawable/menu_item_location"
+            android:title="Check in without booking">
+            <menu>
+                <item
+                    android:id="@+id/menu_item_checkinbyhour_without_booking"
+                    android:icon="@drawable/ic_menu_time"
+                    android:title="By hour" ></item>
+                <item
+                    android:id="@+id/menu_item_checkinbyday_without_booking"
+                    android:icon="@drawable/ic_menu_day"
+                    android:title="By day" />
+            </menu>
+        </item>
+        <item
+            android:id="@+id/menu_item_checkin_with_booking"
+            android:icon="@drawable/ic_menu_calender"
+            android:title="Check in with booking" />
+    </group>
+</menu>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.systemmanagement.RoomTypeFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_frag_sm_roomtype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        ></androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_edt_frag_sm_roomtype"
+        android:visibility="gone"
+        android:layout_below="@+id/rec_frag_sm_roomtype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:boxBackgroundColor="@color/box_edit_text_color">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_frag_sm_roomtype"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="true"
+            android:hint="Add new type" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatButton_frag_sm_roomtype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_add_circle_outline"
+        android:textAlignment="center"
+        app:backgroundTint="#4F8FF1"
+        app:tint="@android:color/white"
+        />
+</RelativeLayout>

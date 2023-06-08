@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="380dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="#e4ebf5">
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_cover_item_housekeeping"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@color/cardview_light_background"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_item_housekeeeping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="3dp"
+            >
+            <ImageView
+                android:id="@+id/img_item_housekeeping"
+                android:layout_width="136dp"
+                android:layout_height="136dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/room" />
+        </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/txt_room_name_item_housekeeping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/cardview_item_housekeeeping"
+            android:text="ROOM 504"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_marginLeft="50dp"
+            />
+        <TextView
+            android:id="@+id/txt_checkout_time_item_housekeeping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/cardview_item_housekeeeping"
+            android:layout_below="@id/txt_room_name_item_housekeeping"
+            android:text="Checkout time: 4/5/2023 17:00"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="italic"
+            />
+        <TextView
+            android:id="@+id/txt_watingtime_item_housekeeping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/cardview_item_housekeeeping"
+            android:layout_below="@id/txt_checkout_time_item_housekeeping"
+            android:text="Waiting time: 120 minutes"
+            android:layout_marginLeft="10dp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/cardview_item_housekeeeping"
+            android:layout_below="@id/txt_watingtime_item_housekeeping"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_clean_housekeeping"
+                />
+            <TextView
+                android:id="@+id/txt_state_item_housekeeping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Need cleaning"
+                android:layout_marginLeft="2dp"
+                android:textColor="#D65656"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

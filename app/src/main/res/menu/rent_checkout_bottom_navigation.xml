@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item   android:id="@+id/bot_nav_available"
+            android:title="Available"
+            android:icon="@drawable/ic_nav_bot_available"/>
+    <item   android:id="@+id/bot_nav_checkedin"
+            android:title="Checked in"
+            android:icon="@drawable/ic_nav_bot_checkedin"/>
+    <item   android:id="@+id/bot_nav_housekeeping"
+            android:title="HouseKeeping"
+            android:icon="@drawable/ic_nav_bot_housekeeping"/>
+    <item   android:id="@+id/bot_nav_history"
+            android:title="History"
+            android:icon="@drawable/ic_nav_bot_history"/>
+</menu>

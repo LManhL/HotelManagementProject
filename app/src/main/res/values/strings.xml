@@ -9,27 +9,27 @@
 
 
     <!-- Menu -->
-    <string name="menu_home">Trang chính</string>
-    <string name="menu_booking">Đặt phòng</string>
-    <string name="menu_rentcheckout">Thuê-trả phòng</string>
-    <string name="menu_money_management">Quản lý thu chi</string>
-    <string name="menu_statistic">Thống kê</string>
-    <string name="menu_system_management">Quản lý hệ thống</string>
-    <string name="menu_account">Tài khoản</string>
-    <string name="log_out">Đăng xuất</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_booking">Booking</string>
+    <string name="menu_rentcheckout">Room services</string>
+    <string name="menu_money_management">Other revenue and expenses</string>
+    <string name="menu_statistic">Statistics</string>
+    <string name="menu_system_management">System management</string>
+    <string name="menu_account">Account</string>
+    <string name="log_out">Logout</string>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
     <!-- System managment -->
-    <string name="room_type">Loại phòng</string>
-    <string name="caculate_money">Cách tính tiền</string>
-    <string name="room">Phòng</string>
+    <string name="room_type">Room type</string>
+    <string name="caculate_money">Price rule</string>
+    <string name="room">Room</string>
     <string name="menu">Menu</string>
-    <string name="customer">Khách hàng</string>
-    <string name="history">Lịch sử</string>
-    <string name="statistic">Thống kê</string>
+    <string name="customer">Customer</string>
+    <string name="history">History</string>
+    <string name="statistic">Statistic</string>
 
 
 </resources>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.systemmanagement.PriceRuleDetailFragment"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtType_frag_sm_price_rule_detail"
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:enabled="false"
+                        android:hint="Type" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RENT BY HOUR"
+                    android:layout_margin="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/header_text"
+                    />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtFirstBlock_frag_sm_price_rule_detail"
+                        android:layout_width="175dp"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:enabled="true"
+                        android:hint="First block" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtFirstBlockPrice_frag_sm_price_rule_detail"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="First block price" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtAfterFirstBlockPrice_frag_sm_price_rule_detail"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="After first block price" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtRoundedTo1h_frag_sm_price_rule_detail"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Rounded minutes to one hour" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RENT BY DAY"
+                    android:layout_margin="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/header_text"
+                    />
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        app:boxBackgroundColor="@color/box_edit_text_color">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtCheckinTime_frag_sm_price_rule_detail"
+                            android:layout_width="175dp"
+                            android:layout_height="match_parent"
+                            android:inputType="time"
+                            android:enabled="true"
+                            android:hint="Check in time" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        app:boxBackgroundColor="@color/box_edit_text_color">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtCheckoutTime_frag_sm_price_rule_detail"
+                            android:layout_width="175dp"
+                            android:layout_height="match_parent"
+                            android:enabled="true"
+                            android:inputType="time"
+                            android:hint="Check out time" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtPrice_frag_sm_price_rule_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:enabled="true"
+                        android:inputType="number"
+                        android:hint="Price" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtOvertimeSurcharge_frag_sm_price_rule_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:enabled="true"
+                        android:inputType="number"
+                        android:hint="Overtime surcharge" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GENERAL"
+                    android:layout_margin="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/header_text"
+                    />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtExtraAdult_frag_sm_price_rule_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:enabled="true"
+                        android:inputType="number"
+                        android:hint="Extra adult price" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtExtraChild_frag_sm_price_rule_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:enabled="true"
+                        android:inputType="number"
+                        android:hint="Extra child price" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </ScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatButton_frag_sm_price_rule_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_confirm"
+            android:textAlignment="center"
+            app:backgroundTint="#4F8FF1"
+            app:tint="@android:color/white"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

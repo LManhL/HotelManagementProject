@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,25 +19,23 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.hotelmangementproject.MainActivity;
 import com.example.hotelmangementproject.R;
-import com.example.hotelmangementproject.databinding.FragmentHomeBinding;
-import com.example.hotelmangementproject.databinding.FragmentSystemManagementBinding;
-import com.example.hotelmangementproject.ui.home.HomeViewModel;
+import com.example.hotelmangementproject.databinding.FragSmMainBinding;
 
 public class SystemManagementFragment extends Fragment {
 
-    private FragmentSystemManagementBinding binding;
+    private FragSmMainBinding binding;
     CardView cardRoomType,cardCaculate,cardRoom,cardMenu,cardCustomer,cardHistory,cardStatistic;
     Animation animAtg;
     Animation animClick;
+    private NavController navController;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         SystemManagementViewModel systemManagementViewModel =
-                new ViewModelProvider(this).get(SystemManagementViewModel.class);
+                new ViewModelProvider(getActivity()).get(SystemManagementViewModel.class);
 
-        binding = FragmentSystemManagementBinding.inflate(inflater, container, false);
+        binding = FragSmMainBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         animAtg = AnimationUtils.loadAnimation(getActivity(),R.anim.atg);
@@ -46,6 +46,12 @@ public class SystemManagementFragment extends Fragment {
         handleChangeFragment();
 
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(getView());
     }
 
     @Override
@@ -77,7 +83,7 @@ public class SystemManagementFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 cardRoomType.startAnimation(animClick);
-                Toast.makeText(getActivity(), "Loại phòng", Toast.LENGTH_SHORT).show();
+                handleNavigate(R.id.action_nav_system_management_to_nav_sm_roomtype);
             }
         });
 
@@ -85,7 +91,7 @@ public class SystemManagementFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 cardCaculate.startAnimation(animClick);
-                Toast.makeText(getActivity(), "Cách tính tiền", Toast.LENGTH_SHORT).show();
+                handleNavigate(R.id.action_nav_system_management_to_nav_sm_price_rule);
             }
         });
 
@@ -93,7 +99,7 @@ public class SystemManagementFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 cardRoom.startAnimation(animClick);
-                Toast.makeText(getActivity(), "Phòng", Toast.LENGTH_SHORT).show();
+                handleNavigate(R.id.action_nav_system_management_to_nav_sm_room);
             }
         });
 
@@ -101,7 +107,7 @@ public class SystemManagementFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 cardMenu.startAnimation(animClick);
-                Toast.makeText(getActivity(), "Menu", Toast.LENGTH_SHORT).show();
+                handleNavigate(R.id.action_nav_system_management_to_nav_sm_menu);
             }
         });
 
@@ -109,7 +115,7 @@ public class SystemManagementFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 cardCustomer.startAnimation(animClick);
-                Toast.makeText(getActivity(), "Khách hàng", Toast.LENGTH_SHORT).show();
+                handleNavigate(R.id.action_nav_system_management_to_nav_sm_customer);
             }
         });
 
@@ -117,7 +123,7 @@ public class SystemManagementFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 cardHistory.startAnimation(animClick);
-                Toast.makeText(getActivity(), "Lịch sử", Toast.LENGTH_SHORT).show();
+                handleNavigate(R.id.action_nav_system_management_to_nav_sm_history);
             }
         });
 
@@ -125,8 +131,11 @@ public class SystemManagementFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 cardStatistic.startAnimation(animClick);
-                Toast.makeText(getActivity(), "Thống kê", Toast.LENGTH_SHORT).show();
+                handleNavigate(R.id.action_nav_system_management_to_nav_sm_statistic);
             }
         });
+    }
+    public void handleNavigate(int id){
+        navController.navigate(id);
     }
 }

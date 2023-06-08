@@ -1,18 +1,22 @@
 package com.example.hotelmangementproject.ui.systemmanagement;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.hotelmangementproject.models.CalMoney;
+
 public class SystemManagementViewModel extends ViewModel {
-    private final MutableLiveData<String> mText;
+
+    private MutableLiveData<CalMoney> calMoney;
 
     public SystemManagementViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is system management fragment");
+        calMoney = new MutableLiveData<>();
+    }
+    public void setCalMoney(CalMoney value){
+        this.calMoney.setValue(value);
+    }
+    public MutableLiveData<CalMoney> getCalMoney(){
+        return calMoney;
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
 }

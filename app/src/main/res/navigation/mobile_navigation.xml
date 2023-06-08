@@ -9,41 +9,192 @@
         android:id="@+id/nav_home"
         android:name="com.example.hotelmangementproject.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/frag_hm_main" />
 
     <fragment
         android:id="@+id/nav_booking"
         android:name="com.example.hotelmangementproject.ui.booking.BookingFragment"
         android:label="@string/menu_booking"
-        tools:layout="@layout/fragment_booking" />
+        tools:layout="@layout/frag_bk_main" />
 
     <fragment
         android:id="@+id/nav_rentcheckout"
-        android:name="com.example.hotelmangementproject.ui.rentcheckout.RentCheckoutFragment"
+        android:name="com.example.hotelmangementproject.ui.roomservices.RoomServiceFragment"
         android:label="@string/menu_rentcheckout"
-        tools:layout="@layout/fragment_rentcheckout" />
+        tools:layout="@layout/frag_rs_main" >
+        <action
+            android:id="@+id/action_nav_rentcheckout_to_nav_available"
+            app:destination="@id/nav_available" />
+        <action
+            android:id="@+id/action_nav_rentcheckout_to_nav_checkedin"
+            app:destination="@id/nav_checkedin" />
+        <action
+            android:id="@+id/action_nav_rentcheckout_to_nav_housekeeping"
+            app:destination="@id/nav_housekeeping" />
+        <action
+            android:id="@+id/action_nav_rentcheckout_to_nav_history"
+            app:destination="@id/nav_history" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_selected_room_available"
+        android:name="com.example.hotelmangementproject.ui.roomservices.SelectedItemFragment"
+        android:label="Selected Item Fragment"
+        tools:layout="@layout/frag_rs_item_available_detail"
+        />
+    <fragment
+        android:id="@+id/nav_housekeeping"
+        android:name="com.example.hotelmangementproject.ui.roomservices.HouseKeepingFragment"
+        android:label="Housekeeping"
+        tools:layout="@layout/frag_rs_house_keeping"
+        />
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.example.hotelmangementproject.ui.roomservices.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/frag_rs_history"
+        />
+    <fragment
+        android:id="@+id/nav_checkedin"
+        android:name="com.example.hotelmangementproject.ui.roomservices.CheckedinFragment"
+        android:label="Checkedin"
+        tools:layout="@layout/frag_rs_checkin"
+        >
+        <action
+            android:id="@+id/action_nav_checkedin_to_nav_edit_bill_checkedin"
+            app:destination="@id/nav_edit_bill_checkedin" />
+        <action
+            android:id="@+id/action_nav_checkedin_to_nav_edit_roombill_checkedin"
+            app:destination="@id/nav_edit_roombill_checkedin" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_edit_roombill_checkedin"
+        android:name="com.example.hotelmangementproject.ui.roomservices.EditCheckedinFragment"
+        android:label="Edit room bill"
+        tools:layout="@layout/frag_rs_edit_roombill"
+        >
+        <action
+            android:id="@+id/action_nav_edit_roombill_checkedin_to_nav_checkedin"
+            app:destination="@id/nav_checkedin" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_edit_bill_checkedin"
+        android:name="com.example.hotelmangementproject.ui.roomservices.EditBillCheckedinFragment"
+        android:label="Edit bill"
+        tools:layout="@layout/frag_rs_edit_bill"
+        >
+        <action
+            android:id="@+id/action_nav_edit_bill_checkedin_to_nav_checkedin"
+            app:destination="@id/nav_checkedin" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_available"
+        android:name="com.example.hotelmangementproject.ui.roomservices.AvailableFragment"
+        android:label="Available"
+        tools:layout="@layout/frag_rs_available"
+        >
+        <action
+            android:id="@+id/action_nav_available_to_nav_selected_room_available"
+            app:destination="@id/nav_selected_room_available" />
+    </fragment>
     <fragment
         android:id="@+id/nav_money_management"
         android:name="com.example.hotelmangementproject.ui.moneymanagement.MoneyManagementFragment"
         android:label="@string/menu_money_management"
-        tools:layout="@layout/fragment_money_management"
+        tools:layout="@layout/frag_mm_main"
         />
+    <!--System management below-->
+
     <fragment
         android:id="@+id/nav_system_management"
         android:name="com.example.hotelmangementproject.ui.systemmanagement.SystemManagementFragment"
         android:label="@string/menu_system_management"
-        tools:layout="@layout/fragment_system_management"
+        tools:layout="@layout/frag_sm_main"
+        >
+        <action
+            android:id="@+id/action_nav_system_management_to_nav_sm_room"
+            app:destination="@id/nav_sm_room" />
+        <action
+            android:id="@+id/action_nav_system_management_to_nav_sm_menu"
+            app:destination="@id/nav_sm_menu" />
+        <action
+            android:id="@+id/action_nav_system_management_to_nav_sm_customer"
+            app:destination="@id/nav_sm_customer" />
+        <action
+            android:id="@+id/action_nav_system_management_to_nav_sm_statistic"
+            app:destination="@id/nav_sm_statistic" />
+        <action
+            android:id="@+id/action_nav_system_management_to_nav_sm_roomtype"
+            app:destination="@id/nav_sm_roomtype" />
+        <action
+            android:id="@+id/action_nav_system_management_to_nav_sm_history"
+            app:destination="@id/nav_sm_history" />
+        <action
+            android:id="@+id/action_nav_system_management_to_nav_sm_price_rule"
+            app:destination="@id/nav_sm_price_rule" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_sm_room"
+        android:name="com.example.hotelmangementproject.ui.systemmanagement.RoomFragment"
+        android:label="Room"
+        tools:layout="@layout/frag_sm_room"
         />
+    <fragment
+        android:id="@+id/nav_sm_roomtype"
+        android:name="com.example.hotelmangementproject.ui.systemmanagement.RoomTypeFragment"
+        android:label="RoomType"
+        tools:layout="@layout/frag_sm_roomtype"
+        />
+    <fragment
+        android:id="@+id/nav_sm_menu"
+        android:name="com.example.hotelmangementproject.ui.systemmanagement.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/frag_sm_menu"
+        />
+    <fragment
+        android:id="@+id/nav_sm_price_rule"
+        android:name="com.example.hotelmangementproject.ui.systemmanagement.PriceRuleFragment"
+        android:label="Price rule"
+        tools:layout="@layout/frag_sm_price_rule"
+        >
+        <action
+            android:id="@+id/action_nav_sm_price_rule_to_nav_sm_price_rule_detail"
+            app:destination="@id/nav_sm_price_rule_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_sm_history"
+        android:name="com.example.hotelmangementproject.ui.systemmanagement.HistoryFragment"
+        android:label="History"
+        tools:layout="@layout/frag_sm_history"
+        />
+    <fragment
+        android:id="@+id/nav_sm_statistic"
+        android:name="com.example.hotelmangementproject.ui.systemmanagement.StatisticFragment"
+        android:label="Statistic"
+        tools:layout="@layout/frag_sm_statistic"
+        />
+    <fragment
+        android:id="@+id/nav_sm_customer"
+        android:name="com.example.hotelmangementproject.ui.systemmanagement.CustomerFragment"
+        android:label="Room"
+        tools:layout="@layout/frag_sm_customer"
+        />
+    <fragment
+        android:id="@+id/nav_sm_price_rule_detail"
+        android:name="com.example.hotelmangementproject.ui.systemmanagement.PriceRuleDetailFragment"
+        android:label="Price rule detail"
+        tools:layout="@layout/frag_sm_price_rule_detail"
+        />
+    <!--System management above-->
     <fragment
         android:id="@+id/nav_statistic"
         android:name="com.example.hotelmangementproject.ui.statistic.StatisticFragment"
         android:label="@string/menu_statistic"
-        tools:layout="@layout/fragment_statistic"
+        tools:layout="@layout/frag_st_main"
         />
     <fragment
         android:id="@+id/nav_account"
         android:name="com.example.hotelmangementproject.ui.account.AccountFragment"
         android:label="@string/menu_account"
-        tools:layout="@layout/fragment_account"
+        tools:layout="@layout/frag_ac_main"
         />
 </navigation>
