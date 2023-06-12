@@ -37,4 +37,7 @@ public class PriceRuleController {
     public static void createPriceRule(CalMoney calMoney){
         PriceRuleService.createPriceRule(calMoney);
     }
+    public static void deletePriceRule(CalMoney calMoney){
+        PriceRuleService.deletePriceRule(calMoney);
+    }
 }

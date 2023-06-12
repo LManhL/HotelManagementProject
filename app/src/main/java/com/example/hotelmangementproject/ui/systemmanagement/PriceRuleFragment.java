@@ -24,10 +24,12 @@ import com.example.hotelmangementproject.R;
 import com.example.hotelmangementproject.adapters.systemmanagementAdapter.PriceRuleAdapter;
 import com.example.hotelmangementproject.adapters.systemmanagementAdapter.RoomTypeAdapter;
 import com.example.hotelmangementproject.controllers.systemmanagementcontrollers.PriceRuleController;
+import com.example.hotelmangementproject.controllers.systemmanagementcontrollers.RoomController;
 import com.example.hotelmangementproject.databinding.FragSmPriceRuleBinding;
 import com.example.hotelmangementproject.interfaces.IClickPriceRule;
 import com.example.hotelmangementproject.interfaces.IClickRoomTypeListener;
 import com.example.hotelmangementproject.models.CalMoney;
+import com.example.hotelmangementproject.models.Room;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +62,11 @@ public class PriceRuleFragment extends Fragment {
             public void onClick(CalMoney calMoney) {
                 model.setCalMoney(calMoney);
                 navToPriceRuleDetail();
+            }
+
+            @Override
+            public void onLongClick(View v, CalMoney calMoney) {
+                showDialog(calMoney);
             }
         });
 
@@ -118,7 +125,25 @@ public class PriceRuleFragment extends Fragment {
         NavController navController = Navigation.findNavController(getView());
         navController.navigate(R.id.action_nav_sm_price_rule_to_nav_sm_price_rule_detail);
     }
-
+    public void showDialog(CalMoney calMoney){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        alertDialogBuilder.setTitle("Confirm");
+        alertDialogBuilder.setMessage("Do you want to delete this item?");
+        alertDialogBuilder.setCancelable(false);
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                PriceRuleController.deletePriceRule(calMoney);
+            }
+        });
+        alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

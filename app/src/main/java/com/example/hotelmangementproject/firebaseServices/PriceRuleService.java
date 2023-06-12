@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import com.example.hotelmangementproject.adapters.systemmanagementAdapter.PriceRuleAdapter;
 import com.example.hotelmangementproject.models.Bill;
 import com.example.hotelmangementproject.models.CalMoney;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,13 +16,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.time.temporal.TemporalAccessor;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PriceRuleService {
     public static void getListPriceRule(List<CalMoney> listPriceRule, PriceRuleAdapter priceRuleAdapter){
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference("calMoney");
-        Query query = mDatabase.orderByChild("type");
+        Query query = mDatabase;
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -77,7 +81,36 @@ public class PriceRuleService {
         calMoney.setId(key);
         mDatabase.setValue(calMoney);
     }
+    public static void findPriceRule(String type,CallBackCalMoney callBack){
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("calMoney");
+        Query query = mDatabase.orderByChild("type").equalTo(type);
+        List<CalMoney> list = new ArrayList<>();
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    CalMoney calMoney = snapshot.getValue(CalMoney.class);
+                    list.add(calMoney);
+                }
+                callBack.callBackFunc(list);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    public static void deletePriceRule(CalMoney calMoney){
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("calMoney");
+        mDatabase.child(calMoney.getId()).removeValue();
+    }
     public interface CallBack{
         public void callBackFunc();
+    }
+    public interface CallBackCalMoney{
+        public void callBackFunc(List<CalMoney> list);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.hotelmangementproject.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Room {
@@ -17,7 +18,13 @@ public class Room {
 
 
     public Room(){
-
+        this.id = "0";
+        this.description = "";
+        this.name = "";
+        this.roomTypes = "";
+        this.roomState = 1;
+        this.calMoney = new CalMoney();
+        this.listImage = new ArrayList<>();
     }
     public Room(String id, String description, String name, String roomTypes, int roomState, CalMoney calMoney, List<String> listImage) {
         this.id = id;

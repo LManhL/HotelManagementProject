@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.systemmanagement.RoomDetailFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpager_frag_sm_roomdetail"
+                android:background="@drawable/blank_image"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"/>
+            <me.relex.circleindicator.CircleIndicator
+                android:id="@+id/cirleindicator_frag_sm_roomdetail"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/viewpager_frag_sm_roomdetail"
+                app:ci_drawable="@drawable/blue_circle"
+                android:layout_centerHorizontal="true"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUpload_frag_sm_roomdetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cirleindicator_frag_sm_roomdetail"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="add image"
+                app:backgroundTint="@color/theme_color" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRemove_frag_sm_roomdetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cirleindicator_frag_sm_roomdetail"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="145dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@id/btnUpload_frag_sm_roomdetail"
+                android:text="Remove" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cover_edt_name_fragsm_roomdetail"
+                android:layout_below="@+id/btnRemove_frag_sm_roomdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:boxBackgroundColor="@color/box_edit_text_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_name_fragsm_roomdetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPersonName"
+                    android:enabled="true"
+                    android:hint="Room name" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cover_description_frag_sm_roomdetail"
+                android:layout_below="@+id/cover_edt_name_fragsm_roomdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:boxBackgroundColor="@color/box_edit_text_color">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_description_frag_sm_roomdetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:enabled="true"
+                    android:hint="Description" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <AutoCompleteTextView
+                android:id="@+id/autoComplete_frag_sm_roomdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cover_description_frag_sm_roomdetail"
+                android:hint="type"
+                android:layout_margin="10dp"
+                android:editable="false"
+                />
+        </RelativeLayout>
+    </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatButton_frag_sm_roomdetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_add_circle_outline"
+        android:textAlignment="center"
+        app:backgroundTint="#4F8FF1"
+        app:tint="@android:color/white" />
+</RelativeLayout>

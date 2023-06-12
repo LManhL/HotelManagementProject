@@ -9,13 +9,15 @@
         android:layout_height="250dp"
         android:layout_margin="5dp"
         app:cardCornerRadius="10dp"
+        android:background="@color/box_edit_text_color"
         >
             <ImageView
                 android:id="@+id/img_selected_available"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/room"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
+                android:background="@color/box_edit_text_color"
                 />
     </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -2,8 +2,10 @@ package com.example.hotelmangementproject.firebaseServices;
 
 import android.os.Build;
 import android.util.Log;
+import android.widget.BaseAdapter;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotelmangementproject.adapters.systemmanagementAdapter.RoomTypeAdapter;
 import com.example.hotelmangementproject.models.CalMoney;
@@ -20,7 +22,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class RoomTypeService {
-    public static void getListRoomType(List<String> listRoomType, RoomTypeAdapter roomTypeAdapter){
+    public static void getListRoomType(List<String> listRoomType, RecyclerView.Adapter roomTypeAdapter){
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference("roomType");
         Query query = mDatabase.orderByChild("type");
@@ -34,6 +36,29 @@ public class RoomTypeService {
                     String roomType = snapshot.getValue(String.class);
                     listRoomType.add(roomType);
                     roomTypeAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("TAG", "loadPost:onCancelled", databaseError.toException());
+            }
+        });
+    }
+    public static void getListRoomType(List<String> listRoomType){
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference("roomType");
+        Query query = mDatabase.orderByChild("type");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(listRoomType != null){
+                    listRoomType.clear();
+                }
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    String roomType = snapshot.getValue(String.class);
+                    listRoomType.add(roomType);
                 }
             }
 

@@ -49,6 +49,13 @@ public class PriceRuleAdapter extends RecyclerView.Adapter<PriceRuleAdapter.Pric
                 iClickPriceRule.onClick(calMoney);
             }
         });
+        holder.linearLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                iClickPriceRule.onLongClick(v,calMoney);
+                return false;
+            }
+        });
     }
 
     @Override

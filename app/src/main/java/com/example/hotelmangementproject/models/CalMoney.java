@@ -45,6 +45,20 @@ public class CalMoney {
         this.firstBlockPrice = firstBlockPrice;
         this.type = type;
     }
+    public CalMoney(CalMoney calMoney){
+        this.id = calMoney.getId();
+        this.checkinTime = calMoney.getCheckinTime();
+        this.checkoutTime = calMoney.getCheckoutTime();
+        this.extraAdultPrice = calMoney.getExtraAdultPrice();
+        this.extraChildPrice = calMoney.getExtraChildPrice();
+        this.price = calMoney.getPrice();
+        this.overtimeSurcharge = calMoney.getOvertimeSurcharge();
+        this.roundedMinutesToOneHour = calMoney.getRoundedMinutesToOneHour();
+        this.afterFirstBlockPrice = calMoney.getAfterFirstBlockPrice();
+        this.firstBlock = calMoney.getFirstBlock();
+        this.firstBlockPrice = calMoney.getFirstBlockPrice();
+        this.type = calMoney.getType();
+    }
 
     public String getId() {
         return id;
@@ -140,5 +154,23 @@ public class CalMoney {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "CalMoney{" +
+                "id='" + id + '\'' +
+                ", checkinTime='" + checkinTime + '\'' +
+                ", checkoutTime='" + checkoutTime + '\'' +
+                ", extraAdultPrice=" + extraAdultPrice +
+                ", extraChildPrice=" + extraChildPrice +
+                ", price=" + price +
+                ", overtimeSurcharge=" + overtimeSurcharge +
+                ", roundedMinutesToOneHour=" + roundedMinutesToOneHour +
+                ", afterFirstBlockPrice=" + afterFirstBlockPrice +
+                ", firstBlock=" + firstBlock +
+                ", firstBlockPrice=" + firstBlockPrice +
+                ", type='" + type + '\'' +
+                '}';
     }
 }
