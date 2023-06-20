@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="@color/light_blue_background_color">
+
+    <LinearLayout
+        android:id="@+id/linearlayout_frag_sm_item_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:orientation="horizontal"
+        android:background="@color/cardview_light_background"
+        >
+        <TextView
+            android:id="@+id/txtID_frag_sm_item_menu"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:text="1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/circle_shape"
+            />
+        <TextView
+            android:id="@+id/txtName_frag_sm_item_menu"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:text="COCA COLA"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/txtPrice_frag_sm_item_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="$15000"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

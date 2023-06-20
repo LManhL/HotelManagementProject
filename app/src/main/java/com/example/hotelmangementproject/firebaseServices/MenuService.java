@@ -3,6 +3,7 @@ package com.example.hotelmangementproject.firebaseServices;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotelmangementproject.adapters.roomservicesAdapter.ListMenuAdapter;
 import com.example.hotelmangementproject.models.Menu;
@@ -17,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 
 public class MenuService {
-    public static void getListMenuBill(List<MenuBill> listMenuBill, List<MenuBill> prevList, ListMenuAdapter listMenuAdapter){
+    public static void getListMenuBill(List<MenuBill> listMenuBill, List<MenuBill> prevList, RecyclerView.Adapter listMenuAdapter){
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference("menu");
         Query query = mDatabase.orderByChild("name");
@@ -49,5 +50,39 @@ public class MenuService {
                 Log.w("TAG", "loadPost:onCancelled", databaseError.toException());
             }
         });
+    }
+    public static void getListMenu(List<Menu> listMenu, RecyclerView.Adapter listMenuAdapter){
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference("menu");
+        Query query = mDatabase.orderByChild("name");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(listMenu != null){
+                    listMenu.clear();
+                }
+                for (DataSnapshot menuSnapshot: dataSnapshot.getChildren()) {
+                    Menu menu = menuSnapshot.getValue(Menu.class);
+                    listMenu.add(menu);
+                    listMenuAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("TAG", "loadPost:onCancelled", databaseError.toException());
+            }
+        });
+    }
+    public static void updateMenu(Menu menu){
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference("menu");
+        mDatabase.child(menu.getId()).setValue(menu);
+    }
+    public static void deleteMenu(Menu menu){
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference("menu");
+        mDatabase.child(menu.getId()).removeValue();
     }
 }

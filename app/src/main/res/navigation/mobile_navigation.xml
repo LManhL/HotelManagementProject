@@ -153,7 +153,11 @@
         android:name="com.example.hotelmangementproject.ui.systemmanagement.MenuFragment"
         android:label="Menu"
         tools:layout="@layout/frag_sm_menu"
-        />
+        >
+        <action
+            android:id="@+id/action_nav_sm_menu_to_nav_sm_menu_detail"
+            app:destination="@id/nav_sm_menu_detail" />
+    </fragment>
     <fragment
         android:id="@+id/nav_sm_price_rule"
         android:name="com.example.hotelmangementproject.ui.systemmanagement.PriceRuleFragment"
@@ -192,8 +196,12 @@
         android:id="@+id/nav_sm_room_detail"
         android:name="com.example.hotelmangementproject.ui.systemmanagement.RoomDetailFragment"
         android:label="Room detail"
-        tools:layout="@layout/frag_sm_room_detail"
-        />
+        tools:layout="@layout/frag_sm_room_detail" />
+    <fragment
+        android:id="@+id/nav_sm_menu_detail"
+        android:name="com.example.hotelmangementproject.ui.systemmanagement.MenuDetailFragment"
+        android:label="Menu detail"
+        tools:layout="@layout/frag_sm_menu_detail" />
     <!--System management above-->
     <fragment
         android:id="@+id/nav_statistic"
