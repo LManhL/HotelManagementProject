@@ -54,5 +54,14 @@ To install the Hotel Management Project, follow these steps:
 ![Screenshot_20230606_220514_Hotel Mangement Project](https://github.com/LManhL/HotelManagementProject/assets/95266634/c13d5a33-4f79-47d5-9583-f1334c6e75a2)
 # ------------------------------------------------------------------------------
 ![Screenshot_20230606_220701_Hotel Mangement Project](https://github.com/LManhL/HotelManagementProject/assets/95266634/e43d183a-d885-4fd0-8be7-5681f5abb40b)
-
+# ------------------------------------------------------------------------------
 ![Screenshot_20230606_220724_Hotel Mangement Project](https://github.com/LManhL/HotelManagementProject/assets/95266634/a53852ea-4931-4ace-a179-a6f0004480a0)
+# ------------------------------------------------------------------------------
+![Screenshot_20230621_000916_I Hotel](https://github.com/LManhL/HotelManagementProject/assets/95266634/b4cd30c5-554d-4a4b-a8fe-8ae44ef5a4f3)
+# ------------------------------------------------------------------------------
+![Screenshot_20230621_000706_I Hotel](https://github.com/LManhL/HotelManagementProject/assets/95266634/5cfef268-1a8f-4977-a87f-d9fa129f7d25)
+# ------------------------------------------------------------------------------
+![Screenshot_20230621_000727_I Hotel](https://github.com/LManhL/HotelManagementProject/assets/95266634/a34b6cc8-838c-438d-9d5f-538df5dc3443)
+# ------------------------------------------------------------------------------
+![Screenshot_20230621_000733_I Hotel](https://github.com/LManhL/HotelManagementProject/assets/95266634/2f52c479-01aa-4aaf-b08f-da272e41774f)
+
