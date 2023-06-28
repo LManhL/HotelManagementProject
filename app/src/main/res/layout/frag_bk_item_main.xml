@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="380dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/light_blue_background_color">
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_cover_frag_bk_item_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="vertical"
+        android:background="@color/cardview_light_background"
+        >
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_date_frag_bk_item_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="28/6/2023 - 30/6/2023"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+        <View
+            android:id="@+id/line_frag_bk_item_main"
+            android:layout_below="@+id/txt_date_frag_bk_item_main"
+            android:layout_width="1dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/black"/>
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:id="@+id/linearLayout_cover_name_frag_bk_item_main"
+            android:layout_below="@+id/txt_date_frag_bk_item_main"
+            android:layout_toRightOf="@+id/line_frag_bk_item_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_person_checkedin"
+                android:layout_gravity="center"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_name_frag_bk_item_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Elon Musk"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout_cover_phonenumber_frag_bk_item_main"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/txt_date_frag_bk_item_main"
+            android:layout_toRightOf="@+id/linearLayout_cover_name_frag_bk_item_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_phone"
+                android:layout_gravity="center"
+                />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_phonenumber_frag_bk_item_main"
+                android:layout_below="@+id/txt_date_frag_bk_item_main"
+                android:layout_toRightOf="@+id/txt_name_frag_bk_item_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0916437895312"
+                android:textSize="16sp"
+                />
+        </LinearLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_state_frag_bk_item_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_cover_phonenumber_frag_bk_item_main"
+            android:layout_toRightOf="@id/line_frag_bk_item_main"
+            android:layout_margin="5dp"
+            android:text="Customer is not checked in yet"
+            android:textSize="14sp"
+            android:textColor="#BFAD0F"
+            />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

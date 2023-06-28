@@ -126,9 +126,6 @@
             android:id="@+id/action_nav_system_management_to_nav_sm_roomtype"
             app:destination="@id/nav_sm_roomtype" />
         <action
-            android:id="@+id/action_nav_system_management_to_nav_sm_history"
-            app:destination="@id/nav_sm_history" />
-        <action
             android:id="@+id/action_nav_system_management_to_nav_sm_price_rule"
             app:destination="@id/nav_sm_price_rule" />
     </fragment>
@@ -169,12 +166,6 @@
             app:destination="@id/nav_sm_price_rule_detail" />
     </fragment>
     <fragment
-        android:id="@+id/nav_sm_history"
-        android:name="com.example.hotelmangementproject.ui.systemmanagement.HistoryFragment"
-        android:label="History"
-        tools:layout="@layout/frag_sm_history"
-        />
-    <fragment
         android:id="@+id/nav_sm_statistic"
         android:name="com.example.hotelmangementproject.ui.systemmanagement.StatisticFragment"
         android:label="Statistic"
@@ -185,7 +176,11 @@
         android:name="com.example.hotelmangementproject.ui.systemmanagement.CustomerFragment"
         android:label="Room"
         tools:layout="@layout/frag_sm_customer"
-        />
+        >
+        <action
+            android:id="@+id/action_nav_sm_customer_to_nav_sm_customer_detail"
+            app:destination="@id/nav_sm_customer_detail" />
+    </fragment>
     <fragment
     android:id="@+id/nav_sm_price_rule_detail"
     android:name="com.example.hotelmangementproject.ui.systemmanagement.PriceRuleDetailFragment"
@@ -202,6 +197,11 @@
         android:name="com.example.hotelmangementproject.ui.systemmanagement.MenuDetailFragment"
         android:label="Menu detail"
         tools:layout="@layout/frag_sm_menu_detail" />
+    <fragment
+        android:id="@+id/nav_sm_customer_detail"
+        android:name="com.example.hotelmangementproject.ui.systemmanagement.CustomerDetailFragment"
+        android:label="Customer detail"
+        tools:layout="@layout/frag_sm_customer_detail" />
     <!--System management above-->
     <fragment
         android:id="@+id/nav_statistic"

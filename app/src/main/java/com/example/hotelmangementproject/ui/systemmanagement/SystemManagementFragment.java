@@ -65,7 +65,6 @@ public class SystemManagementFragment extends Fragment {
         cardRoom = binding.smRoom;
         cardMenu = binding.smMenu;
         cardCustomer = binding.smCustomer;
-        cardHistory = binding.smHistory;
         cardStatistic = binding.smStatistic;
     }
 
@@ -73,7 +72,6 @@ public class SystemManagementFragment extends Fragment {
         cardRoomType.startAnimation(animAtg);
         cardRoom.startAnimation(animAtg);
         cardCaculate.startAnimation(animAtg);
-        cardHistory.startAnimation(animAtg);
         cardMenu.startAnimation(animAtg);
         cardStatistic.startAnimation(animAtg);
         cardCustomer.startAnimation(animAtg);
@@ -119,13 +117,6 @@ public class SystemManagementFragment extends Fragment {
             }
         });
 
-        cardHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cardHistory.startAnimation(animClick);
-                handleNavigate(R.id.action_nav_system_management_to_nav_sm_history);
-            }
-        });
 
         cardStatistic.setOnClickListener(new View.OnClickListener() {
             @Override

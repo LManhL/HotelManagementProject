@@ -42,9 +42,15 @@ public class MenuDetailFragment extends Fragment {
                     Menu menu = new Menu(curMenu.getId(), Double.valueOf(binding.importPriceFragSmMenuDetail.getText().toString()),
                             binding.nameFragSmMenuDetail.getText().toString(), Double.valueOf(binding.priceFragSmMenuDetail.getText().toString()),
                             binding.typeFragSmMenuDetail.getText().toString());
-                    MenuController.updateMenu(menu);
+                    if(menu.getId().isEmpty()){
+                        MenuController.createMenu(menu);
+                        Toast.makeText(getActivity(), "Create successfully", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Toast.makeText(getActivity(), "Update successfully", Toast.LENGTH_SHORT).show();
+                        MenuController.updateMenu(menu);
+                    }
                     navToMenuFragment();
-                    Toast.makeText(getActivity(), "Update successfully", Toast.LENGTH_SHORT).show();
                 }
             }
         });

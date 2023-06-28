@@ -85,4 +85,11 @@ public class MenuService {
         mDatabase = FirebaseDatabase.getInstance().getReference("menu");
         mDatabase.child(menu.getId()).removeValue();
     }
+    public static void createMenu(Menu menu){
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference("menu").push();
+        String key = mDatabase.getKey();
+        menu.setId(key);
+        mDatabase.setValue(menu);
+    }
 }

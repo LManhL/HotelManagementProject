@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.hotelmangementproject.models.CalMoney;
+import com.example.hotelmangementproject.models.Customer;
 import com.example.hotelmangementproject.models.Menu;
 import com.example.hotelmangementproject.models.Room;
 
@@ -13,11 +14,13 @@ public class SystemManagementViewModel extends ViewModel {
     private MutableLiveData<CalMoney> calMoney;
     private MutableLiveData<Room> room;
     private MutableLiveData<Menu> menu;
+    private MutableLiveData<Customer> customer;
 
     public SystemManagementViewModel() {
         calMoney = new MutableLiveData<>();
         room = new MutableLiveData<>();
         menu = new MutableLiveData<>();
+        customer = new MutableLiveData<>();
     }
     public void setCalMoney(CalMoney value){
         this.calMoney.setValue(value);
@@ -36,6 +39,12 @@ public class SystemManagementViewModel extends ViewModel {
     }
     public MutableLiveData<Menu> getMenu(){
         return this.menu;
+    }
+    public MutableLiveData<Customer> getCustomer(){
+        return this.customer;
+    }
+    public void setCustomer(Customer value){
+        this.customer.setValue(value);
     }
 
 }

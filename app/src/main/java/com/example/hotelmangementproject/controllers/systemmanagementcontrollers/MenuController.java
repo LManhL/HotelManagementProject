@@ -14,6 +14,9 @@ public class MenuController {
     public static void updateMenu(Menu menu){
         MenuService.updateMenu(menu);
     }
+    public static void createMenu(Menu menu){
+
+    }
     public static void deleteMenu(Menu menu){
         MenuService.deleteMenu(menu);
     }

@@ -8,7 +8,7 @@ public class Menu {
     private String type;
 
     public Menu(){
-        this.id = "0";
+        this.id = "";
         this.importPrice = 0;
         this.name = "";
         this.price = 0;
