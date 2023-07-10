@@ -2,11 +2,13 @@ package com.example.hotelmangementproject.firebaseServices;
 
 import android.os.Build;
 import android.util.Log;
+import android.widget.Adapter;
 import android.widget.BaseAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hotelmangementproject.MainActivity;
 import com.example.hotelmangementproject.adapters.systemmanagementAdapter.RoomTypeAdapter;
 import com.example.hotelmangementproject.models.CalMoney;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +26,7 @@ import java.util.concurrent.ExecutionException;
 public class RoomTypeService {
     public static void getListRoomType(List<String> listRoomType, RecyclerView.Adapter roomTypeAdapter){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("roomType");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("roomType");
         Query query = mDatabase.orderByChild("type");
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -48,7 +50,7 @@ public class RoomTypeService {
     }
     public static void getListRoomType(List<String> listRoomType){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("roomType");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("roomType");
         Query query = mDatabase.orderByChild("type");
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -69,16 +71,40 @@ public class RoomTypeService {
             }
         });
     }
+    public static void getListRoomType(List<String> listRoomType, BaseAdapter adapter){
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("roomType");
+        Query query = mDatabase.orderByChild("type");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(listRoomType != null){
+                    listRoomType.clear();
+                }
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    String roomType = snapshot.getValue(String.class);
+                    listRoomType.add(roomType);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("TAG", "loadPost:onCancelled", databaseError.toException());
+            }
+        });
+    }
     public static void createRoomType(String roomtype){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("roomType");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("roomType");
         DatabaseReference pushedPostRef = mDatabase.push();
         String id = pushedPostRef.getKey();
         mDatabase.child(id).setValue(roomtype);
     }
     public static void deleteRoomType(String roomtype){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("roomType");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("roomType");
         Query query = mDatabase.orderByValue().equalTo(roomtype);
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -97,7 +123,7 @@ public class RoomTypeService {
     }
     public static void getListRoomTypeAvailable(List<String> listRoomType, List<CalMoney> listPriceRule, PriceRuleService.CallBack callBack){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("roomType");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("roomType");
         Query query = mDatabase.orderByChild("type");
         query.addValueEventListener(new ValueEventListener() {
             @Override

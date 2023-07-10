@@ -8,8 +8,13 @@ import com.example.hotelmangementproject.models.RoomBill;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class TimeService {
@@ -52,6 +57,7 @@ public class TimeService {
         long diff = currentTimeMillis - roomBill.getCheckinTime();
         long hours = (diff / (TimeService.HOUR_TO_MILISECONDS));
         long minutes = (diff / (TimeService.MINUTE_TO_MILISECONDS)) % 60;
+        Log.d("checking",String.format("%02d:%02d", hours, minutes));
         return String.format("%02d:%02d", hours, minutes);
     }
     public static String calWaitingTime(DirtyRoom room){
@@ -66,5 +72,51 @@ public class TimeService {
         long hours = (diff / (1000 * 60 * 60));
         long minutes = (diff / (1000 * 60)) % 60;
         return String.format("%02d:%02d", hours, minutes);
+    }
+    public static boolean checkIfTimeBelongsToToday(long timestamp){
+        Instant instant = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            instant = Instant.ofEpochMilli(timestamp);
+        }
+        LocalDateTime dateTime = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+        }
+
+        // Lấy ngày hôm nay
+        LocalDate currentDate = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            currentDate = LocalDate.now();
+        }
+
+        // Lấy ngày từ biến thời gian
+        LocalDate dateFromTimestamp = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            dateFromTimestamp = dateTime.toLocalDate();
+        }
+        if (currentDate.equals(dateFromTimestamp)) {
+            return true;
+        }
+        return false;
+    }
+    public static long getStartTimeOfToday(){
+        // Lấy thời điểm bắt đầu ngày hôm nay
+        LocalDateTime startOfDay = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            startOfDay = LocalDate.now().atStartOfDay();
+        }
+
+        // Chuyển đổi startOfDay thành Instant
+        Instant startInstant = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            startInstant = startOfDay.toInstant(ZoneOffset.UTC);
+        }
+
+        // Lấy giá trị milliseconds từ Instant
+        long startMilliseconds = 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            startMilliseconds = startInstant.toEpochMilli();
+        }
+        return startMilliseconds;
     }
 }

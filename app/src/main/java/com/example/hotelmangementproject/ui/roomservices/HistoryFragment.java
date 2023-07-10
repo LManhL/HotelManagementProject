@@ -16,7 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.hotelmangementproject.R;
-import com.example.hotelmangementproject.controllers.rentcheckoutcontrollers.HistoryController;
+import com.example.hotelmangementproject.controllers.roomservicescontroller.HistoryController;
 import com.example.hotelmangementproject.databinding.FragRsHistoryBinding;
 import com.example.hotelmangementproject.interfaces.IClickBillListener;
 import com.example.hotelmangementproject.models.Bill;

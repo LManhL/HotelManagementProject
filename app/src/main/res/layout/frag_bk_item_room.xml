@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="110dp"
+    android:layout_height="45dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp"
+    android:background="@color/theme_color"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:id="@+id/relativelayout_cover_item_frag_bk_item_room"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/theme_color">
+
+            <com.google.android.material.button.MaterialButton
+                android:enabled="false"
+                android:id="@+id/white_circle"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_margin="2dp"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="20dp" />
+
+            <TextView
+                android:id="@+id/txt_name_frag_bk_item_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:gravity="center"
+                android:text="Room 1001"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/btn_delete_room_frag_bk_item_room"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_circle_cancle" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

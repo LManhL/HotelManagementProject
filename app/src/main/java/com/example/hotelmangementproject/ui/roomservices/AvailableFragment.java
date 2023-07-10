@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +26,7 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.example.hotelmangementproject.R;
-import com.example.hotelmangementproject.controllers.rentcheckoutcontrollers.AvailableController;
+import com.example.hotelmangementproject.controllers.roomservicescontroller.AvailableController;
 import com.example.hotelmangementproject.databinding.FragRsAvailableBinding;
 import com.example.hotelmangementproject.interfaces.IClickItemRoomListener;
 import com.example.hotelmangementproject.models.Room;
@@ -129,7 +129,7 @@ public class AvailableFragment extends Fragment {
                         showDialog(room, TYPE_RENT_BY_DAY);
                         return true;
                     case R.id.menu_item_checkin_with_booking:
-                        Log.d("tag","3");
+                        navToBookingFragment();
                         return true;
                     default:
                         return false;
@@ -139,6 +139,11 @@ public class AvailableFragment extends Fragment {
 
         popupMenu.show();
     }
+    public void navToBookingFragment(){
+        NavController navController = Navigation.findNavController(getView());
+        navController.navigate(R.id.nav_booking);
+    }
+
     protected void showDialog(Room room, int type){
 
         Dialog dialog = new Dialog(getActivity());

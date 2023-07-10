@@ -11,11 +11,33 @@
         android:label="@string/menu_home"
         tools:layout="@layout/frag_hm_main" />
 
+
+    <!--Booking is below-->
     <fragment
         android:id="@+id/nav_booking"
         android:name="com.example.hotelmangementproject.ui.booking.BookingFragment"
         android:label="@string/menu_booking"
-        tools:layout="@layout/frag_bk_main" />
+        tools:layout="@layout/frag_bk_main" >
+        <action
+            android:id="@+id/action_nav_booking_to_nav_booking_detail"
+            app:destination="@id/nav_booking_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_booking_detail"
+        android:name="com.example.hotelmangementproject.ui.booking.BookingDetailFragment"
+        android:label="booking detail"
+        tools:layout="@layout/frag_bk_booking_detail" >
+        <action
+            android:id="@+id/action_nav_booking_detail_to_nav_choose_room"
+            app:destination="@id/nav_choose_room" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_choose_room"
+        android:name="com.example.hotelmangementproject.ui.booking.ChooseRoomFragment"
+        android:label="choose room"
+        tools:layout="@layout/frag_bk_choose_room" />
+    <!--Booking is above-->
+
 
     <fragment
         android:id="@+id/nav_rentcheckout"
@@ -102,8 +124,8 @@
         android:label="@string/menu_money_management"
         tools:layout="@layout/frag_mm_main"
         />
-    <!--System management below-->
 
+    <!--System management is below-->
     <fragment
         android:id="@+id/nav_system_management"
         android:name="com.example.hotelmangementproject.ui.systemmanagement.SystemManagementFragment"
@@ -202,7 +224,9 @@
         android:name="com.example.hotelmangementproject.ui.systemmanagement.CustomerDetailFragment"
         android:label="Customer detail"
         tools:layout="@layout/frag_sm_customer_detail" />
-    <!--System management above-->
+    <!--System management is above-->
+
+
     <fragment
         android:id="@+id/nav_statistic"
         android:name="com.example.hotelmangementproject.ui.statistic.StatisticFragment"

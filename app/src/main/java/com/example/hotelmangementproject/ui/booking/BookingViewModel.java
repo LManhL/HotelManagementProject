@@ -4,16 +4,26 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.hotelmangementproject.models.Booking;
+import com.example.hotelmangementproject.models.RoomTypeBooking;
+
 public class BookingViewModel extends ViewModel {
-
-    private final MutableLiveData<String> mText;
-
+    private MutableLiveData<Booking> booking;
+    private MutableLiveData<RoomTypeBooking> roomTypeBooking;
     public BookingViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is booking fragment");
+        booking = new MutableLiveData<>();
+        roomTypeBooking = new MutableLiveData<>();
     }
-
-    public LiveData<String> getText() {
-        return mText;
+    public MutableLiveData<Booking> getBooking(){
+        return this.booking;
+    }
+    public void setBooking(Booking value) {
+        this.booking.setValue(value);
+    }
+    public MutableLiveData<RoomTypeBooking> getRoomTypeBooking(){
+        return this.roomTypeBooking;
+    }
+    public void setRoomTypeBooking(RoomTypeBooking value){
+        this.roomTypeBooking.setValue(value);
     }
 }

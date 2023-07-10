@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hotelmangementproject.MainActivity;
 import com.example.hotelmangementproject.adapters.roomservicesAdapter.ListMenuAdapter;
 import com.example.hotelmangementproject.models.Menu;
 import com.example.hotelmangementproject.models.MenuBill;
@@ -20,7 +21,7 @@ import java.util.List;
 public class MenuService {
     public static void getListMenuBill(List<MenuBill> listMenuBill, List<MenuBill> prevList, RecyclerView.Adapter listMenuAdapter){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("menu");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("menu");
         Query query = mDatabase.orderByChild("name");
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -53,7 +54,7 @@ public class MenuService {
     }
     public static void getListMenu(List<Menu> listMenu, RecyclerView.Adapter listMenuAdapter){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("menu");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("menu");
         Query query = mDatabase.orderByChild("name");
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -77,17 +78,17 @@ public class MenuService {
     }
     public static void updateMenu(Menu menu){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("menu");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("menu");
         mDatabase.child(menu.getId()).setValue(menu);
     }
     public static void deleteMenu(Menu menu){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("menu");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("menu");
         mDatabase.child(menu.getId()).removeValue();
     }
     public static void createMenu(Menu menu){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("menu").push();
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("menu").push();
         String key = mDatabase.getKey();
         menu.setId(key);
         mDatabase.setValue(menu);

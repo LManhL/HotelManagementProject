@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+    <ImageView
+        android:layout_marginTop="150dp"
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/ic_logo_app"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="35dp"
+        app:cardCornerRadius="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edt_email_login"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edt_password_login"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/txt_signup_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You don't have any account? Let's Sign up!"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/light_blue_color"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_signin_login"
+        android:layout_margin="15dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Sign in"
+        android:backgroundTint="@color/light_blue_color"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>

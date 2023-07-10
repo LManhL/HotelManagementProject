@@ -22,4 +22,5 @@
     <style name="Theme.HotelMangementProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.HotelMangementProject.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.hotelmangementproject.MainActivity;
 import com.example.hotelmangementproject.adapters.roomservicesAdapter.RoomHouseKeepingAdapter;
 import com.example.hotelmangementproject.models.DirtyRoom;
 import com.google.firebase.database.DataSnapshot;
@@ -18,7 +19,7 @@ import java.util.List;
 public class DirtyRoomService {
     public static void getListDirtyRoom(List<DirtyRoom> listRoom, RoomHouseKeepingAdapter roomHouseKeepingAdapter) {
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("dirtyRoom");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("dirtyRoom");
         Query query = mDatabase.orderByChild("roomTypes");
         query.addValueEventListener(new ValueEventListener() {
             @Override

@@ -18,12 +18,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.hotelmangementproject.databinding.FragRsCheckoutBinding;
 import com.example.hotelmangementproject.services.TimeService;
 import com.example.hotelmangementproject.R;
-import com.example.hotelmangementproject.controllers.rentcheckoutcontrollers.CheckoutController;
+import com.example.hotelmangementproject.controllers.roomservicescontroller.CheckoutController;
 import com.example.hotelmangementproject.interfaces.IClickItemRoomBillListener;
 import com.example.hotelmangementproject.models.Bill;
 import com.example.hotelmangementproject.models.RoomBill;
 import com.example.hotelmangementproject.adapters.roomservicesAdapter.RoomBillCheckedinAdapter;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -170,6 +171,21 @@ public class CheckoutFragment extends Fragment {
 
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
+                Bill bill = model.getBill().getValue();
+
+                if(!handleValidate()) return;
+
+                bill.setSubmitBillTime(TimeService.getCurrentTime());
+                bill.setCustomerName(binding.edtCustomernameEditbillCheckedin.getText().toString());
+                bill.setPhoneNumber(binding.edtPhonenumberEditbillCheckedin.getText().toString());
+                bill.setNote(binding.edtNoteEditbillCheckedin.getText().toString());
+                bill.setOtherPrice(Double.parseDouble(binding.edtOtherpriceEditbillCheckedin.getText().toString()));
+                bill.setPrepayment(Double.parseDouble(binding.edtPrepaymentEditbillCheckedin.getText().toString()));
+                bill.setSurcharge(Double.parseDouble(binding.edtSurchargeEditbillCheckedin.getText().toString()));
+                bill.setState(Bill.STATE_CHECK_OUT);
+                // caculate bill cost
+                bill.caculateBill();
+                model.setBill(bill);
                 CheckoutController.checkoutBillOnFireBase(getActivity(),bill);
                 getParentFragmentManager().popBackStack();
             }

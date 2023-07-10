@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.hotelmangementproject.MainActivity;
 import com.example.hotelmangementproject.adapters.systemmanagementAdapter.PriceRuleAdapter;
 import com.example.hotelmangementproject.models.Bill;
 import com.example.hotelmangementproject.models.CalMoney;
@@ -23,7 +24,7 @@ import java.util.List;
 public class PriceRuleService {
     public static void getListPriceRule(List<CalMoney> listPriceRule, PriceRuleAdapter priceRuleAdapter){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("calMoney");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("calMoney");
         Query query = mDatabase;
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -48,7 +49,7 @@ public class PriceRuleService {
     }
     public static void getListPriceRule(List<CalMoney> listPriceRule, CallBack callBack){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("calMoney");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("calMoney");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -71,19 +72,19 @@ public class PriceRuleService {
     }
     public static void updatePriceRule(CalMoney calMoney){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("calMoney").child(calMoney.getId());
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("calMoney").child(calMoney.getId());
         mDatabase.setValue(calMoney);
     }
     public static void createPriceRule(CalMoney calMoney){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("calMoney").push();
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("calMoney").push();
         String key = mDatabase.getKey();
         calMoney.setId(key);
         mDatabase.setValue(calMoney);
     }
     public static void findPriceRule(String type,CallBackCalMoney callBack){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("calMoney");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("calMoney");
         Query query = mDatabase.orderByChild("type").equalTo(type);
         List<CalMoney> list = new ArrayList<>();
         query.addValueEventListener(new ValueEventListener() {
@@ -104,7 +105,7 @@ public class PriceRuleService {
     }
     public static void deletePriceRule(CalMoney calMoney){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("calMoney");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("calMoney");
         mDatabase.child(calMoney.getId()).removeValue();
     }
     public interface CallBack{

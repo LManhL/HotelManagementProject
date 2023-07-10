@@ -8,9 +8,11 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hotelmangementproject.MainActivity;
 import com.example.hotelmangementproject.adapters.roomservicesAdapter.RoomAvailableAdapter;
 import com.example.hotelmangementproject.models.CalMoney;
 import com.example.hotelmangementproject.models.Room;
+import com.example.hotelmangementproject.models.RoomTypeBooking;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -32,7 +34,7 @@ import java.util.List;
 public class RoomService {
     public static void getListRoom(List<Room> listRoom, RecyclerView.Adapter roomAvailableAdapter){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("room");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("room");
         Query query = mDatabase.orderByChild("roomState").equalTo(Room.STATE_AVAILABLE);
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -55,13 +57,38 @@ public class RoomService {
             }
         });
     }
+    public static void getListRoom(List<Room> listRoom, CallBackGetListRoom callBackGetListRoom){
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("room");
+        Query query = mDatabase.orderByChild("roomState");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(listRoom != null){
+                    listRoom.clear();
+                }
+                for (DataSnapshot roomSnapshot: dataSnapshot.getChildren()) {
+                    Log.d("key",roomSnapshot.getKey());
+                    Room room = roomSnapshot.getValue(Room.class);
+                    listRoom.add(room);
+                }
+                callBackGetListRoom.callBack();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("TAG", "loadPost:onCancelled", databaseError.toException());
+            }
+        });
+    }
     public static void changeRoomState(Room room, int state){
-        DatabaseReference mDatabase  = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference mDatabase  = FirebaseDatabase.getInstance().getReference(MainActivity.UID);
         mDatabase.child("room").child(room.getId()).child("roomState").setValue(state);
     }
     public static void createRoom(Room room, Context context){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("room");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("room");
         DatabaseReference pushedPostRef = mDatabase.push();
         String id = pushedPostRef.getKey();
         if(room.getId().equals("0")){
@@ -147,12 +174,12 @@ public class RoomService {
     }
     public static void updateListImage(Room room){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("room");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("room");
         mDatabase.child(room.getId()).child("listImage").setValue(room.getListImage());
     }
     public static void updateRoom(Context context, Room room){
         DatabaseReference mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference("room");
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("room");
         mDatabase.child(room.getId()).setValue(room);
     }
     public static void deleteRoom(Room room, Context context){
@@ -164,17 +191,57 @@ public class RoomService {
                 public void callBack(Room room) {
                     if(finalI == 0){
                         DatabaseReference mDatabase;
-                        mDatabase = FirebaseDatabase.getInstance().getReference("room");
+                        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("room");
                         mDatabase.child(room.getId()).removeValue();
                     }
                 }
             });
         }
     }
+    public static void getRoomListOfType(List<Room> roomList, RecyclerView.Adapter adapter, RoomTypeBooking roomTypeBooking){
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference(MainActivity.UID).child("room");
+        Query query = mDatabase.orderByChild("roomState").equalTo(Room.STATE_AVAILABLE);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(roomList != null){
+                    roomList.clear();
+                }
+                for (DataSnapshot roomSnapshot: dataSnapshot.getChildren()) {
+                    Room room = roomSnapshot.getValue(Room.class);
+                    if(room.getRoomTypes().equals(roomTypeBooking.getType())){
+                        boolean check = true;
+                        if(roomTypeBooking.getRoomList() != null){
+                            for(Room value : roomTypeBooking.getRoomList()){
+                                if(room.getName().equals(value.getName())){
+                                    check = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if(check == true){
+                            roomList.add(room);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w("TAG", "loadPost:onCancelled", databaseError.toException());
+            }
+        });
+    }
     public interface CallBackUpload{
         public void callBack(Room room, int position,Uri uri);
     }
     public interface CallBackDelete{
         public void callBack(Room room);
+    }
+    public interface CallBackGetListRoom{
+        public void callBack();
     }
 }

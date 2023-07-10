@@ -2,6 +2,7 @@ package com.example.hotelmangementproject.models;
 
 import com.example.hotelmangementproject.services.TimeService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomBill extends Room{
@@ -155,8 +156,9 @@ public class RoomBill extends Room{
             checkoutTime = TimeService.getCurrentTime();
             String staytime = TimeService.calStaytime(this);
             /* HH:mm */
-            int hour = Integer.parseInt(staytime.substring(0,2));
-            int minutes = Integer.parseInt(staytime.substring(3,5));
+            String[] stringArrayList = staytime.split(":");
+            int hour = Integer.parseInt(stringArrayList[0]);
+            int minutes = Integer.parseInt(stringArrayList[1]);
 
             if(minutes >= getCalMoney().getRoundedMinutesToOneHour()) hour++;
             long afterFirstBlock = hour - getCalMoney().getFirstBlock();

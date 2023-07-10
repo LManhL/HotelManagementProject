@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.booking.BookingDetailFragment"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_name_frag_bk_booking_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:enabled="true"
+                        android:hint="Customer name" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_phonenumber_frag_bk_booking_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:enabled="true"
+                        android:hint="Phone number" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_checkin_frag_bk_booking_detail"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Check in date" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_checkout_frag_bk_booking_detail"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Check out date" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_prepayment_frag_bk_booking_detail"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Prepayment" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_bookingprice_frag_bk_booking_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:enabled="true"
+                        android:inputType="number"
+                        android:hint="Booking price" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:boxBackgroundColor="@color/box_edit_text_color">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_note_frag_bk_booking_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:enabled="true"
+                        android:inputType="textMultiLine"
+                        android:hint="Note" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="Room list"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        />
+                    <ImageView
+                        android:id="@+id/btn_add_roomtype_frag_bk_booking_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_add_more_room"
+                        android:layout_gravity="center"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearLayout_cover_add_roomtype_frag_bk_booking_detail"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <AutoCompleteTextView
+                        android:id="@+id/autoComplete_frag_bk_booking_detail"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/layout_edt_frag_sm_price_rule"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:editable="false"
+                        android:hint="type" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_confirm_add_roomtype_frag_bk_item_roomtype_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        app:cornerRadius="5dp"
+                        android:text="add"
+                        android:textSize="12sp"
+                        app:backgroundTint="#FFC107"
+                        app:icon="@drawable/icon_add_circle" />
+                </LinearLayout>
+                <androidx.cardview.widget.CardView
+                    app:cardBackgroundColor="@color/light_blue_background_color"
+                    app:cardCornerRadius="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:background="@color/white"
+                        android:id="@+id/rec_roomtype_list_frag_bk_booking_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:layout_margin="6dp"
+                        android:focusableInTouchMode="true"
+                        android:nestedScrollingEnabled="true"
+                        />
+                </androidx.cardview.widget.CardView>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_checkin_frag_bk_booking_detail"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="#FFC107"
+                    app:cornerRadius="10dp"
+                    android:layout_margin="10dp"
+                    android:text="Check in"
+                    />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatButton_frag_bk_booking_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_confirm"
+            android:textAlignment="center"
+            app:backgroundTint="#4F8FF1"
+            app:tint="@android:color/white" />
+    </RelativeLayout>
+
+</LinearLayout>

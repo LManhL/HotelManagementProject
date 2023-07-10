@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.hotelmangementproject.R;
-import com.example.hotelmangementproject.controllers.rentcheckoutcontrollers.HouseKeepingController;
+import com.example.hotelmangementproject.controllers.roomservicescontroller.HouseKeepingController;
 import com.example.hotelmangementproject.databinding.FragRsHouseKeepingBinding;
 import com.example.hotelmangementproject.interfaces.IClickDirtyRoomListener;
 import com.example.hotelmangementproject.models.DirtyRoom;

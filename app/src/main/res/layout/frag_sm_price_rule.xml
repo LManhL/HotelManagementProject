@@ -41,13 +41,16 @@
         app:backgroundTint="#4F8FF1"
         app:tint="@android:color/white"
         />
+
     <AutoCompleteTextView
         android:id="@+id/autoComplete_frag_sm_price_rule"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_edt_frag_sm_price_rule"
-        android:hint="type"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:editable="false"
-        />
+        android:hint="type" />
 </RelativeLayout>

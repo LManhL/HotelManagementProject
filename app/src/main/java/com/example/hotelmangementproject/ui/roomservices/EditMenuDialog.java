@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hotelmangementproject.R;
-import com.example.hotelmangementproject.controllers.rentcheckoutcontrollers.EditMenuDialogController;
+import com.example.hotelmangementproject.controllers.roomservicescontroller.EditMenuDialogController;
 import com.example.hotelmangementproject.interfaces.IClickItemListMenuListener;
 import com.example.hotelmangementproject.adapters.roomservicesAdapter.ListMenuAdapter;
 import com.example.hotelmangementproject.models.MenuBill;

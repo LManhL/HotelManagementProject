@@ -1,4 +1,4 @@
-package com.example.hotelmangementproject.controllers.rentcheckoutcontrollers;
+package com.example.hotelmangementproject.controllers.roomservicescontroller;
 
 import com.example.hotelmangementproject.models.Bill;
 import com.google.firebase.database.DatabaseReference;

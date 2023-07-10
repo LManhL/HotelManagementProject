@@ -10,7 +10,7 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.hotelmangementproject.controllers.rentcheckoutcontrollers.EditBillCheckedinController;
+import com.example.hotelmangementproject.controllers.roomservicescontroller.EditBillCheckedinController;
 import com.example.hotelmangementproject.databinding.FragRsEditBillBinding;
 
 import com.example.hotelmangementproject.models.Bill;

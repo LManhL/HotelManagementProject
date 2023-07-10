@@ -1,5 +1,7 @@
 package com.example.hotelmangementproject.models;
 
+import com.example.hotelmangementproject.services.TimeService;
+
 import java.util.List;
 import java.util.Map;
 
@@ -17,14 +19,13 @@ public class Booking {
     private Double prepayment;
     private Double bookingPrice;
     private int state;
-    private Map<String,Integer> roomTypeList;
-    private List<Room> roomList;
+    private List<RoomTypeBooking> roomTypeList;
 
     public Booking() {
 
     }
 
-    public Booking(String id, String customerName, String phoneNumber, String checkin, String checkout, String note, Double prepayment, Double bookingPrice, int state, Map<String, Integer> roomTypeList, List<Room> roomList) {
+    public Booking(String id, String customerName, String phoneNumber, String checkin, String checkout, String note, Double prepayment, Double bookingPrice, int state, List<RoomTypeBooking> roomTypeList) {
         this.id = id;
         this.customerName = customerName;
         this.phoneNumber = phoneNumber;
@@ -35,7 +36,14 @@ public class Booking {
         this.bookingPrice = bookingPrice;
         this.state = state;
         this.roomTypeList = roomTypeList;
-        this.roomList = roomList;
+    }
+
+    public void setRoomTypeList(List<RoomTypeBooking> roomTypeList) {
+        this.roomTypeList = roomTypeList;
+    }
+
+    public List<RoomTypeBooking> getRoomTypeList() {
+        return roomTypeList;
     }
 
     public String getId() {
@@ -110,21 +118,7 @@ public class Booking {
         this.state = state;
     }
 
-    public Map<String, Integer> getRoomTypeList() {
-        return roomTypeList;
-    }
 
-    public void setRoomTypeList(Map<String, Integer> roomTypeList) {
-        this.roomTypeList = roomTypeList;
-    }
-
-    public List<Room> getRoomList() {
-        return roomList;
-    }
-
-    public void setRoomList(List<Room> roomList) {
-        this.roomList = roomList;
-    }
     public String getStringState(){
         if(getState() == IS_NOT_CHECKED_IN_YET){
             return "Customer is not checked in yet";
@@ -136,5 +130,31 @@ public class Booking {
             return "Customer has checked out";
         }
         return "";
+    }
+    public double calCulatePrice(){
+        bookingPrice = 0.0;
+        if(roomTypeList != null){
+            for(RoomTypeBooking roomTypeBooking : roomTypeList){
+                if(roomTypeBooking.getRoomList() != null){
+                    for(Room room : roomTypeBooking.getRoomList()){
+                        String checkin = room.getCalMoney().getCheckinTime();
+                        String chekout = room.getCalMoney().getCheckoutTime();
+                        String[] arrayCheckin = checkin.split(":");
+                        String[] arracyCheckout = chekout.split(":");
+                        long roundedHourPerDay = Long.parseLong(arrayCheckin[0]) + Long.parseLong(arracyCheckout[0]);
+
+                        String timeIn = getCheckin() + " "+room.getCalMoney().getCheckinTime()+":00";
+                        long checkinTime = TimeService.convertToMilliseconds(timeIn);
+                        String timeOut = getCheckout() + " "+room.getCalMoney().getCheckoutTime()+":00";
+                        long checkoutTime = TimeService.convertToMilliseconds(timeOut);
+
+                        long diff = checkoutTime - checkinTime;
+                        long days = diff / (3600000 * roundedHourPerDay);
+                        bookingPrice += days * room.getCalMoney().getPrice();
+                    }
+                }
+            }
+        }
+        return bookingPrice;
     }
 }

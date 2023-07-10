@@ -1,6 +1,7 @@
 package com.example.hotelmangementproject.adapters.booking;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,17 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         holder.txtName.setText(booking.getCustomerName());
         holder.txtPhoneNumber.setText(booking.getPhoneNumber());
         holder.txtDate.setText(booking.getCheckin()+ " - " + booking.getCheckout());
+
+        if(booking.getState() == Booking.IS_NOT_CHECKED_IN_YET){
+            holder.txtState.setTextColor(Color.parseColor("#33c442"));
+        }
+        else if(booking.getState() == Booking.CHECKED_IN){
+            holder.txtState.setTextColor(Color.parseColor("#b5110b"));
+
+        }
+        else{
+            holder.txtState.setTextColor(Color.parseColor("#bfa108"));
+        }
         holder.txtState.setText(booking.getStringState());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -21,7 +21,7 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 
 import com.example.hotelmangementproject.R;
-import com.example.hotelmangementproject.controllers.rentcheckoutcontrollers.CheckedinController;
+import com.example.hotelmangementproject.controllers.roomservicescontroller.CheckedinController;
 import com.example.hotelmangementproject.databinding.FragRsCheckinBinding;
 import com.example.hotelmangementproject.interfaces.IClickBillListener;
 import com.example.hotelmangementproject.interfaces.IClickItemRoomBillListener;
