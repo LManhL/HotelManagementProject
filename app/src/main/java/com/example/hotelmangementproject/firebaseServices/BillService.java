@@ -10,6 +10,8 @@ import com.example.hotelmangementproject.MainActivity;
 import com.example.hotelmangementproject.adapters.roomservicesAdapter.HistoryAdapter;
 import com.example.hotelmangementproject.models.Bill;
 import com.example.hotelmangementproject.models.Booking;
+import com.example.hotelmangementproject.models.DirtyRoom;
+import com.example.hotelmangementproject.models.Room;
 import com.example.hotelmangementproject.models.RoomBill;
 import com.example.hotelmangementproject.services.TimeService;
 import com.google.firebase.database.DataSnapshot;
@@ -136,6 +138,21 @@ public class BillService {
         BookingService.updateStateBookingIfBillFromBooking(bill, Booking.IS_NOT_CHECKED_IN_YET);
     }
 
+    public static void checkoutBill(Bill bill){
+        DatabaseReference mDatabase2  = FirebaseDatabase.getInstance().getReference(MainActivity.UID);
+        mDatabase2.child("bill").child(bill.getId()).setValue(bill);
+        // Change every room in bill to available
+        for(RoomBill roomBill : bill.getListRoomBill()){
+            DirtyRoom dirtyRoom = new DirtyRoom(roomBill);
+            mDatabase2.child("dirtyRoom").child(roomBill.getId()).setValue(dirtyRoom);
+            mDatabase2.child("room").child(roomBill.getId()).child("roomState").setValue(Room.STATE_HOUSEKEEPING);
+        }
+        BookingService.updateStateBookingIfBillFromBooking(bill,Booking.CHECKED_OUT);
+    }
+    public static void updateBill(Bill bill){
+        DatabaseReference mDatabase2  = FirebaseDatabase.getInstance().getReference(MainActivity.UID);
+        mDatabase2.child("bill").child(bill.getId()).setValue(bill);
+    }
     public interface CallBackBillList{
         public void callBack();
     }

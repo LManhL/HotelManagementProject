@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.hotelmangementproject.R;
 import com.example.hotelmangementproject.interfaces.IClickItemRoomListener;
 import com.example.hotelmangementproject.models.Room;
@@ -45,7 +46,16 @@ public class RoomAvailableAdapter extends RecyclerView.Adapter<RoomAvailableAdap
         if(room == null){
             return;
         }
-        holder.imgHotel.setImageResource(R.drawable.room);
+        if(room.getListImage() != null){
+            String url = room.getListImage().get(0);
+            if(url != null){
+                Glide.with(mContext).load(url).into(holder.imgHotel);
+            }
+        }
+        else{
+            holder.imgHotel.setImageResource(R.drawable.room);
+        }
+
         holder.txtType.setText(room.getRoomTypes());
         holder.txtState.setText(room.converStateToString());
         holder.txtName.setText(room.getName().toUpperCase());

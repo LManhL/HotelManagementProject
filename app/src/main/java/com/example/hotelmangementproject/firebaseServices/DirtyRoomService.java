@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import com.example.hotelmangementproject.MainActivity;
 import com.example.hotelmangementproject.adapters.roomservicesAdapter.RoomHouseKeepingAdapter;
 import com.example.hotelmangementproject.models.DirtyRoom;
+import com.example.hotelmangementproject.models.Room;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,5 +42,10 @@ public class DirtyRoomService {
                 Log.w("TAG", "loadPost:onCancelled", databaseError.toException());
             }
         });
+    }
+    public static void updateState(DirtyRoom dirtyRoom){
+        DatabaseReference mDatabase2  = FirebaseDatabase.getInstance().getReference(MainActivity.UID);
+        mDatabase2.child("dirtyRoom").child(dirtyRoom.getId()).removeValue();
+        mDatabase2.child("room").child(dirtyRoom.getId()).child("roomState").setValue(Room.STATE_AVAILABLE);
     }
 }

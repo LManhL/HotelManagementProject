@@ -115,9 +115,7 @@ public class HouseKeepingFragment extends Fragment {
         alertDialog.show();
     }
     public void  updateToFireBase(DirtyRoom dirtyRoom){
-        DatabaseReference mDatabase2  = FirebaseDatabase.getInstance().getReference();
-        mDatabase2.child("dirtyRoom").child(dirtyRoom.getId()).removeValue();
-        mDatabase2.child("room").child(dirtyRoom.getId()).child("roomState").setValue(Room.STATE_AVAILABLE);
+        HouseKeepingController.updateState(dirtyRoom);
         Toast.makeText(getActivity(), "Update successfully", Toast.LENGTH_SHORT).show();
     }
     public void handleSelectItem(){

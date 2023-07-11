@@ -10,4 +10,7 @@ public class HouseKeepingController {
     public static void getListDirtyRoom(List<DirtyRoom> listRoom, RoomHouseKeepingAdapter roomHouseKeepingAdapter) {
         DirtyRoomService.getListDirtyRoom(listRoom,roomHouseKeepingAdapter);
     }
+    public static void updateState(DirtyRoom dirtyRoom){
+        DirtyRoomService.updateState(dirtyRoom);
+    }
 }

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.hotelmangementproject.services.TimeService;
 import com.example.hotelmangementproject.R;
 import com.example.hotelmangementproject.interfaces.IClickItemRoomBillListener;
@@ -66,7 +67,15 @@ public class RoomBillCheckedinAdapter extends RecyclerView.Adapter<RecyclerView.
         if(roomBill==null) return;
         if(TYPE_RENT_BY_DAY == holder.getItemViewType()){
             RoomCheckedinRentByDayViewHolder roomCheckedinRentByDayViewHolder = (RoomCheckedinRentByDayViewHolder) holder;
-            roomCheckedinRentByDayViewHolder.imgHotel.setImageResource(R.drawable.room);
+            if(roomBill.getListImage() != null){
+                String url = roomBill.getListImage().get(0);
+                if(url != null){
+                    Glide.with(mContext).load(url).into(((RoomCheckedinRentByDayViewHolder) holder).imgHotel);
+                }
+            }
+            else{
+                ((RoomCheckedinRentByDayViewHolder) holder).imgHotel.setImageResource(R.drawable.room);
+            }
             roomCheckedinRentByDayViewHolder.txtStartTime.setText("From: " + TimeService.convertMilisecondsToDate(roomBill.getCheckinTime()));
             roomCheckedinRentByDayViewHolder.txtEndTime.setText("To: " + TimeService.convertMilisecondsToDate(roomBill.getCheckoutTime()));
             roomCheckedinRentByDayViewHolder.txtPrice.setText(Double.toString(roomBill.getRoomCost()));
@@ -89,7 +98,15 @@ public class RoomBillCheckedinAdapter extends RecyclerView.Adapter<RecyclerView.
         }
         else if(TYPE_RENT_BY_HOUR == holder.getItemViewType()){
             RoomCheckedinRentByHourViewHolder roomCheckedinRentByHourViewHolder = (RoomCheckedinRentByHourViewHolder) holder;
-            roomCheckedinRentByHourViewHolder.imgHotel.setImageResource(R.drawable.room);
+            if(roomBill.getListImage() != null){
+                String url = roomBill.getListImage().get(0);
+                if(url != null){
+                    Glide.with(mContext).load(url).into(((RoomCheckedinRentByHourViewHolder) holder).imgHotel);
+                }
+            }
+            else{
+                ((RoomCheckedinRentByHourViewHolder) holder).imgHotel.setImageResource(R.drawable.room);
+            }
             roomCheckedinRentByHourViewHolder.txtCheckinTime.setText("From: "+ TimeService.convertMilisecondsToDate(roomBill.getCheckinTime()));
             roomCheckedinRentByHourViewHolder.curPrice.setText(Double.toString(roomBill.getRoomCost()));
             roomCheckedinRentByHourViewHolder.txtRoomName.setText(roomBill.getName().toUpperCase());
